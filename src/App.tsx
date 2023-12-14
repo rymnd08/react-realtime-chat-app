@@ -28,7 +28,6 @@ function App() {
   const auth = getAuth(app)
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState<Message[] | null>(null)
-  const [isSubmited, setIsSubmitted] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
 
   async function handleSubmit(e: FormEvent){
@@ -39,7 +38,6 @@ function App() {
           return
         }
         await addDoc(collection(db, 'messages'), {userID: auth.currentUser?.uid, message: message, timeStamp: Date.now(), photoUrl: auth.currentUser?.photoURL})
-        setIsSubmitted(!isSubmited)
         setMessage('')
       } catch (error) {
         alert(error)
@@ -83,7 +81,7 @@ function App() {
 
   useEffect(()=>{
     displayMessages()
-  },[isSubmited, isLogin])
+  },[isLogin])
 
   return (
 

@@ -12,7 +12,7 @@ const Header = ({signIn, isLogin, logOut}: SignInProps) => {
             <h3 className='text-2xl hidden md:block'>React realtime chat app</h3>
           </div>
           {isLogin &&
-             <button className='text-2xl' onClick={logOut}><span className="hidden md:block">Logout</span> <i className="bi bi-box-arrow-right"></i></button>
+             <button className='text-2xl' onClick={logOut}><span className="hidden md:inline-block">Logout</span> <i className="bi bi-box-arrow-right"></i></button>
           }
           {!isLogin && 
           <button className='text-2xl' onClick={signIn}>Login <i className="bi bi-google"></i></button>}
